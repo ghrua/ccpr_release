@@ -2,9 +2,10 @@
 
 - [ ] Unify the python environment
 - [ ] Release the human annotated data for retrieval
-- [ ] Release the code for training
+- [x] Release the code for training
 - [ ] Release the pre-trained model
-- [ ] Release the code for inference
+- [x] Release the code for retrieval inference
+- [ ] Release the code for MT inference
 
 ## Environment
 
@@ -64,6 +65,8 @@ bash eval_retriever.sh
 ```
 
 ### Inference: MT
+
+> TODO
 
 
 ### Preaprocess Training Data
