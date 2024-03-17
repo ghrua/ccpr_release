@@ -56,15 +56,6 @@ If you want to pre-process the data of human-annotated word alignment by youself
 
 ## Ussage
 
-## Preaprocess Training Data
-
-Run the following code to automatically induce the cross-lingual phrase pairs from the parallel data.
-
-```bash
-cd code
-bash preprocess_data.sh
-```
-
 ### Inference: Retrieval
 
 ```bash
@@ -75,5 +66,19 @@ bash eval_retriever.sh
 ### Inference: MT
 
 
+### Preaprocess Training Data
+
+Run the following code to automatically induce the cross-lingual phrase pairs from the parallel data.
+
+```bash
+cd code
+bash preprocess_data.sh
+```
+
+
 ### Model Training
 
+```bash
+cd code
+bash train_retriever_labse_multilingual.sh
+```
