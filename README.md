@@ -41,7 +41,11 @@ do
 done
 ```
 
-### Word Alignment
+### Human-annotated Word Alignment
+
+Please download the pre-processed data from [this link](xxx), and put it to `./datastore`.
+
+If you want to pre-process the data of human-annotated word alignment by youself, please download the raw data as follows:
 
 |        |                                     URL                                     | Re-name           |
 |--------|:---------------------------------------------------------------------------:|-------------------|
@@ -49,12 +53,24 @@ done
 | Cs->En | https://lindat.mff.cuni.cz/repository/xmlui/handle/11234/1-1804             | ./align_data/CzEn |
 | Ro->En | http://web.eecs.umich.edu/~mihalcea/wpt05/data/Romanian-English.test.tar.gz | ./align_data/RoEn |
 
-Please rename the downloaded file to the last column.
 
 ## Ussage
 
+## Preaprocess Training Data
+
+Run the following code to automatically induce the cross-lingual phrase pairs from the parallel data.
+
+```bash
+cd code
+bash preprocess_data.sh
+```
+
 ### Inference: Retrieval
 
+```bash
+cd code
+bash eval_retriever.sh
+```
 
 ### Inference: MT
 

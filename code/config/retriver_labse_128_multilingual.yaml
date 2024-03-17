@@ -1,0 +1,88 @@
+##############################
+# model architecture
+##############################
+model_name: "retrieval"
+model_config_dir: ../huggingface/LaBSE
+out_hidden_size: 128
+norm_repr: False
+init_from_hf: True
+repr_layer_index: 12
+enable_tok_loss: False
+enable_sent_loss: False
+enable_cycle_loss: False
+tok_loss_weight: 0.1
+sent_loss_weight: 0.1
+cycle_loss_weight: 0.1
+enable_temprature: False
+version: simcse_tkz
+#dropout_rate: 0.2
+#tkz_loss_weight: 2.0
+enable_tokenizer_head: True
+#paired_data_percent: 1.0
+#use_single_pos: False
+#masked_paired_data_percent: 0.3
+
+
+##############################
+# train
+##############################
+learning_rate: 0.00005
+weight_decay: 0.0
+num_train_epochs: 100
+gradient_accumulation_steps: 1
+lr_scheduler_type: "cosine"
+num_warmup_steps: 1000
+max_temperature: 1.0
+output_dir: ../ckpts/labse_retriever_fromgiza_with_tkz_wmt16_deen_nonorm_layer12_outsize128_lr0.00005_tkz_loss_weight2.0_dropout_0.2_paired_data_percent1.0_mask0.3_multipos/
+seed: 10086
+checkpointing_steps: 5000
+max_train_steps: 30000
+logging_steps: 2000
+
+##############################
+# data
+##############################
+ds_name: "retrieval_with_tokenization_memory_efficient_dataset"
+src_lang: de
+tgt_lang: en
+shuffle: True
+batch_size: 64
+max_sequence_len: 128
+encoder_tokenizer_path: ../huggingface/LaBSE
+# data_pretrained_ckpt: ../data-bin/labse.moses.withtkz.retrival.max128.fromgiza
+data_pretrained_dir_prefix: ../data-bin/labse.moses.withtkz.retrival.max128.fromgiza
+data_from_pretrained: True
+use_ref_as_postive: True
+freq_of_stop_words: 30000
+
+
+##############################
+# inference
+##############################
+inference_build_index: False
+inference_encode_lang: None
+inference_datastore_file: /apdcephfs/share_916081/qucui/intern_data/alanili/Copyisallyouneed/data/wmt16_deen/train.clean.en
+inference_batch_size: 256
+inference_save_dir: /apdcephfs/share_916081/qucui/intern_data/alanili/reinvent_pbmt/out/wmt16_deen_datastore_20230723/
+inference_cache_sise: 500000
+inference_model_dir: /apdcephfs/share_916081/qucui/intern_data/alanili/reinvent_pbmt/ckpts/retriever_wmt16_deen_gas4_bs8_20230723/step_40000
+inference_test_src_file: /apdcephfs/share_916081/qucui/intern_data/alanili/Copyisallyouneed/data/wmt16_deen/validation.clean.en
+inference_test_tgt_file: /apdcephfs/share_916081/qucui/intern_data/alanili/Copyisallyouneed/data/wmt16_deen/validation.clean.en
+inference_save_file_prefix: None
+inference_index_type: flatip
+num_data_shards: -1
+inference_retrieval_topk: 1000
+inference_data_mode: 'tokenizer'
+inference_tokenizer_n_sampling: 8
+inference_src_ngram_set: /apdcephfs/share_916081/qucui/intern_data/alanili/Copyisallyouneed/data/wmt16_deen/train.clean.de.ngram.set
+inference_tgt_ngram_set: /apdcephfs/share_916081/qucui/intern_data/alanili/Copyisallyouneed/data/wmt16_deen/train.clean.en.ngram.set
+inference_max_ngram_len: 3
+inference_on_gpu: False
+inference_gpu_num: 3
+inference_search_from: raw
+inference_search_batch_size: 256
+inference_search_queryshard_ids: ""
+score_retrieval_topk: 10
+score_lower: False
+score_retrieve_unique: True
+score_mode: ngram
