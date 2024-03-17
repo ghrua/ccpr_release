@@ -1,0 +1,35 @@
+##############################
+# model architecture
+##############################
+model_name: "retrieval"
+model_config_dir: ../huggingface/LaBSE
+# model_type: "ours_labse"
+# model_pretrained_dir: ../ckpts/retriever_labse_multilingual_20240202/step_20000
+# save_dir: ../datastore/eval_retriever/ours
+model_type: "labse"
+model_pretrained_dir: ../huggingface/LaBSE
+save_dir: ../datastore/eval_retriever/labse
+enable_tokenizer_head: True
+paired_data_percent: 1.0
+out_hidden_size: 128
+use_single_pos: False
+masked_paired_data_percent: 0.0
+
+
+##############################
+# data
+##############################
+ds_name: "retrieval_with_tokenization_memory_efficient_dataset"
+train_src_lang: de
+train_tgt_lang: en
+eval_src_lang: de,cs,ro
+eval_tgt_lang: en,en,en
+batch_size: 256
+max_sequence_len: 128
+encoder_tokenizer_path: ../huggingface/LaBSE
+# data_pretrained_ckpt: ../data-bin/labse.moses.withtkz.retrival.max128.fromgiza
+train_databin_prefix: ../data-bin/eval.retriever.train
+eval_databin_prefix: ../data-bin/eval.retriever.test
+data_from_pretrained: True
+use_ref_as_postive: True
+freq_of_stop_words: 30000
