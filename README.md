@@ -114,6 +114,7 @@ bash index_and_search.sh
 Please save unzip the [pre-trained LLM-based translator](https://drive.google.com/file/d/17JONPq1J7QfxR3C83b5l9mw-vZXDGmAl/view?usp=share_link) and save the `ckpts` folder to the root path of this project (this folder). If you don't want to use the pre-trained model, prepare training data and train it by yourself following the README of Platypus. 
 
 ```bash
+# skip this if you want to use the pre-trained translator
 cd Platypus
 bash fine-tuning.sh
 ```
