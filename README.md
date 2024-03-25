@@ -55,8 +55,6 @@ done
 
 ### 4.3 Human-annotated Word Alignment (for Retrieval Evaluation)
 
-Please download the pre-processed data-bin from [this link](https://drive.google.com/file/d/1xCa8xrQrx-O8lxM2Y0WNadUpqiLBPJ-w/view?usp=share_link), and put it to the root directory of this project, i.e., this folder.
-
 If you want to pre-process the data of human-annotated word alignment by youself, please download the raw data as follows:
 
 |        |                                     URL                                     | Re-name           |
@@ -86,6 +84,10 @@ where `YY` is the number of year, e.g., `16`, and `LANG` is the language of the 
 
 Before runing the following script, please remember to complete some configs in the script, e.g., path to python, and also make sure that you have installed the required libraries.
 
+Please download the pre-processed data-bin from [this link], and put it to the root directory of this project, i.e., this folder.
+
+You can download our pre-trained retriever through [this link](https://drive.google.com/file/d/1baMaqob6Q09kESNwG-7wtNyHhf7c0RaS/view?usp=share_link). If you want to train your own model, please refer to Section 5.3. In addition, please download the pre-processed [human-annotated data](https://drive.google.com/file/d/1xCa8xrQrx-O8lxM2Y0WNadUpqiLBPJ-w/view?usp=share_link) and the [indices of high-quality phrases selected by humans](https://drive.google.com/file/d/1qwYLtTSqGTKW-XD_AoHGla2XOoKmG6XZ/view?usp=share_link), and put them under the root directory of our project (this folder).
+
 ```bash
 cd code
 bash eval_retriever.sh
@@ -93,8 +95,6 @@ bash eval_retriever.sh
 If you want to pre-process your own data for retrieval, please check un-comment the code for data processing in `eval_retriever.sh`.
 
 ### 5.2 Inference: MT
-
-> TODO
 
 **Step-1**: Model training 
 
