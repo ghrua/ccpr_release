@@ -1,10 +1,12 @@
 ########################################################
-# Hyper-prameters
+# Please config the following project variables
 ########################################################
 PYTHON_PATH=/path/to/python/
 
 ########################################################
 # Prepare alignment data
+# NOTE: If you have downloaded the pre-processed data-bin,
+# then you don't need to run the code in this part again.
 ########################################################
 
 # $PYTHON_PATH/python eval_retriever.py prepare_deen_annotation_data

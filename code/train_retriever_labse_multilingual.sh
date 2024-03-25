@@ -1,5 +1,5 @@
 #############################################
-# scripts for Jan 19, 2024
+# Please config the following project variables
 #############################################
 PROJECT_ROOT_DIR="../"
 MODEL_NAME="LaBSE"
@@ -7,8 +7,9 @@ MODEL_NAME="LaBSE"
 
 #############################################
 # Model Training
+# NOTE: You don't need to modify the following
+# hyper-parameters
 ############################################## 
-# Shared Hyper-parameters
 
 TKZ_LOSS_WEIGHT=1.0
 DROPOUT_RATE=0.2
