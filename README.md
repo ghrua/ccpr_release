@@ -121,7 +121,7 @@ bash fine-tuning.sh
 
 **Step-5**: Decoding & Reprting Score
 
-You can use the folllowing data to prepare the prompts. Note you can prepare the training data using the following script, too.
+You can use the folllowing data to prepare the prompts. Note you can prepare the training data based on the following script.
 ```bash
 cd Platypus
 bash prepare_alpaca_data_phrase_test_enxx.sh
