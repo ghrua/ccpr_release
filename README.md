@@ -1,6 +1,6 @@
 ## 1. Introduction
 
-The code for our paper Cross-lingual Contextualized Phase Retrieval. 
+The code for our paper [Cross-lingual Contextualized Phase Retrieval](https://arxiv.org/abs/2403.16820). 
 
 > NOTE: Since this project contains many pipelines and each part is finished seperately during this long-term project, I have not test the whole project from scratch again, which is one thing in my TODO list. However, I think the code and scrips are helpful for people who are curious about how we implement our method. Please feel free to ask any questions about this project. My email address: li.huayang.lh6 [at] is.naist.jp
 
@@ -109,9 +109,9 @@ cd code
 bash index_and_search.sh
 ```
 
-**Step-4**: Fine-tune LLM for translation
+**Step-4**: Instruction-tuning LLM for translation
 
-Please save unzip the [pre-trained LLM-based translator](https://drive.google.com/file/d/17JONPq1J7QfxR3C83b5l9mw-vZXDGmAl/view?usp=share_link) and save the `ckpts` folder to the root path of this project (this folder). If you don't want to use the pre-trained model, prepare training data and train it by yourself following the README of Platypus. 
+Please save unzip the [pre-trained LLM-based translator](https://drive.google.com/file/d/17JONPq1J7QfxR3C83b5l9mw-vZXDGmAl/view?usp=share_link) and save the `ckpts` folder to the root path of this project (this folder). If you don't want to use the pre-trained model, prepare training data and train it by yourself following the README of Platypus. For the training data, you need to make samples from WMT training dataset and retrieve cross-lingual phrases using the index built in previous step.
 
 ```bash
 # skip this if you want to use the pre-trained translator
@@ -121,7 +121,7 @@ bash fine-tuning.sh
 
 **Step-5**: Decoding & Reprting Score
 
-You can use the folllowing data to prepare the prompts. Note you can prepare the training data based on the following script.
+You can use the folllowing data to prepare the prompts for translation. Note you can prepare the training data based on the following script.
 ```bash
 cd Platypus
 bash prepare_alpaca_data_phrase_test_enxx.sh
